@@ -2,7 +2,7 @@
   "name": "expensify",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/microcyberz/random-decision.git",
+  "repository": "https://github.com/microcyberz/expensify-app",
   "author": "Ahmad Ali",
   "license": "MIT",
   "scripts": {
