@@ -39,9 +39,27 @@ const setTextFilter = (text = '') => ({
 });
 
 // SORT_BY_DATE
+const sortByDate = () => ({
+  type: 'SORT_BY_DATE'
+});
+
 // SORT_BY_AMOUNT
+const sortByAmount = () => ({
+  type: 'SORT_BY_AMOUNT'
+});
+
 // SET_START_DATE
+const setStartDate = (startDate) => ({
+  type: 'SET_START_DATE',
+  startDate
+});
+
 // SET_END_DATE
+const setEndDate = (endDate) => ({
+  type: 'SET_END_DATE',
+  endDate
+});
+
 
 //////////////////// REDUCERS ////////////////////
 //////////////////// Expenses Reducer ////////////////////
@@ -50,13 +68,11 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
   switch (action.type) {
     case 'ADD_EXPENSE':
       return [...state, action.expense];
-      break;
 
     case 'REMOVE_EXPENSE':
       return state.filter(({
         id
       }) => id !== action.id);
-      break;
 
 
     case 'EDIT_EXPENSE':
@@ -70,7 +86,6 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
           return expense;
         }
       });
-      break;
 
     default:
       return state;
@@ -90,7 +105,31 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
       ...state,
       text: action.text
     };
-  break;
+
+    case 'SORT_BY_DATE':
+    return{
+      ...state,
+      sortBy: 'date'
+    };
+
+    case 'SORT_BY_AMOUNT':
+    return{
+      ...state,
+      sortBy: 'amount'
+    };
+
+    case 'SET_START_DATE':
+    return{
+      ...state,
+      startDate: action.startDate
+    }
+
+    case 'SET_END_DATE':
+    return{
+      ...state,
+      endDate: action.endDate
+    }
+
     default:
       return state;
   }
@@ -119,9 +158,25 @@ store.dispatch(removeExpense({id: expenseOne.expense.id}));
 // Dispatch EDIT_EXPENSE 
 store.dispatch(editExpense(expenseTwo.expense.id, {amount: 500}));
 
-//DISPATCH SET_TEXT_FILTER
-store.dispatch(setTextFilter('chachachachahcahc'));
+// DISPATCH SET_TEXT_FILTER
+store.dispatch(setTextFilter('rent'));
 store.dispatch(setTextFilter());
+
+// DISPATCH SORT_BY_AMOUNT
+store.dispatch(sortByAmount());
+
+// DISPATCH SORT_BY_DATE
+store.dispatch(sortByDate());
+
+console.log("=============");
+
+// DISPATCH SET_START_DATE
+store.dispatch(setStartDate(125));
+store.dispatch(setStartDate());
+
+// DISPATCH SET_END_DATE
+store.dispatch(setEndDate(999));
+
 
 const demoState = {
   expenses: [{
