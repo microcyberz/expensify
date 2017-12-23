@@ -1,3 +1,7 @@
+
+/////////////////////////// OBJECT SESTRUCTURING ///////////////////////////////
+
+
 const person = {
   name: 'Ahmad',
   age: 21,
@@ -31,3 +35,7 @@ const {name: publisherName = "Self-Published"} = book.publisher;
 console.log(publisherName);
 
 
+/////////////////////////// ARRAY SESTRUCTURING ///////////////////////////////
+const address = ['1299 S Juniper Street', 'Philadelphia', 'Pensylvania', '19147'];
+const [, villiage = 'Kulhaary Sharqi', state] = address;
+console.log(`You are in ${villiage} ${state}`);
