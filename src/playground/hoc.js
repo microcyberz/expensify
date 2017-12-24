@@ -1,4 +1,4 @@
-////////// Higher order component (HOC) //////////
+////////// Higher order component (HOC) also called CONTAINERS and SMART COMPONENTS //////////
 // == A component (HOC) that renders another component
 // == Goals are
 // ==== Reuse code
