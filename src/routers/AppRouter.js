@@ -9,7 +9,7 @@ import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
-export const history = createHistory();
+export const history = createHistory(); // for using it all over the application, not just the components it is passed to
 
 const AppRouter = () => (
   <Router history={history}>
